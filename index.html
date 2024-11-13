@@ -128,7 +128,8 @@
         <div id="feature1-content" class="feature-content">
             <p><strong>Description:</strong> This feature provides ready-to-use templates for popular RDF vocabularies, including FOAF, Schema.org, DC, etc... . When selected, the template inserts structured triples into the RDF document, defining entities with properties commonly used in these vocabularies. For example, a template for a person might include basic information such as foaf:name, foaf:age, and schema:address, with slots for values like name, email, and address details already laid out. </p>
             <p><strong>Why Useful:</strong> This feature is a time-saver, especially for users who frequently work with common vocabularies. Instead of typing each term manually, users can start with a structured set of triples that reflect the vocabulary's typical usage. For beginners, it offers a concrete example of how to apply RDF vocabularies correctly. For experienced users, it ensures faster setup and minimizes errors, helping to keep data consistent and standardized. </p>
-            <p><strong>Usage in VS Code:</strong> Available in the command palette, allowing users to insert templates into RDF documents.</p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
+            <p><strong>Usage in VS Code:</strong> Available through the command palette, allowing users select and insert available templates into RDF documents.</p>
             <div class="image-container">
                 <div>
                     <img src="images/insertTemplate.gif" alt="using template">
@@ -145,8 +146,9 @@
         </div>
         <div id="feature2-content" class="feature-content">
             <p><strong>Description:</strong> This feature allows users to create, name, and remove their own RDF templates, tailored to their specific data needs. Users can define any custom structure by setting up triples with their preferred properties, namespaces, and values, then save this setup as a reusable template. Once created, templates can be easily inserted into any RDF document with a single command. Users can also remove templates, keeping their template library organized and relevant to their ongoing projects.</p>
-            <p><strong>Why Useful:</strong> Custom templates are invaluable for users with unique data requirements that aren't fully covered by predefined templates. By allowing users to create templates tailored to their specific data structures, this feature prevents the need to recreate complex setups repeatedly. Users can build templates once and reuse them across projects, ensuring consistency and saving time. Organized under meaningful names, custom templates also make it easy to access intricate data structures quickly. </p>
-            <p><strong>Usage in VS Code:</strong> Users create templates via command palette, then use the command palette to insert them as needed.</p>
+            <p><strong>Why Useful:</strong> Custom templates are invaluable for users with unique data requirements that aren't fully covered by predefined templates. By allowing users to create templates tailored to their specific data structures, this feature prevents the need to recreate complex setups repeatedly. Users can build templates once and reuse them across projects, ensuring consistency and saving time. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
+            <p><strong>Usage in VS Code:</strong> Users name and save, as well as remove templates via command palette, then users are able to select and insert the templates through command palette.</p>
             <div class="image-container">
                 <div>
                     <img src="images/custom-template.gif" alt="Custom Templatese">
@@ -162,9 +164,16 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature3-content" class="feature-content">
-            <p><strong>Description:</strong> The RDF Dataset Diff Viewer allows users to instantly compare two RDF datasets side-by-side, highlighting unique, overlapping, and similar triples in each dataset. Users can see which triples are present in only one dataset and examine detailed differences within similar triples, providing a clear view of any discrepancies. </p>
-            <p><strong>Why Useful:</strong>  This feature is ideal for users who need to compare two datasets directly, especially when working with data from different sources or independently modified files. By showing unique and modified triples, the Diff Viewer helps users quickly assess consistency, compatibility, and potential conflicts between datasets. </p>
-            <p><strong>Usage in VS Code:</strong> Users can access the Diff Viewer via the command palette, selecting two RDF files for comparison. Differences are highlighted in a side-by-side view, with unique triples marked distinctly and similar triples to show specific variations.</p>
+            <p><strong>Description:</strong> The RDF Dataset Diff Viewer allows users to instantly compare two RDF datasets side-by-side, highlighting overlapping and similar triples in each dataset. Users can see which triples are present in only one dataset and examine detailed differences within similar triples, providing a clear view of any discrepancies. The triples don't need to align in both of the datasets. </p>
+            <p><strong>Why Useful:</strong>  This feature is ideal for users who need to compare two datasets directly, especially when working with data from different sources or independently modified files. By showing similar triples, the Diff Viewer helps users quickly assess consistency, compatibility, and potential conflicts between datasets. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, N-Triples</p>
+            <p><strong>Usage in VS Code:</strong> Users can access the Diff Viewer via the command palette, selecting RDF file for comparison against the current open file. Differences are highlighted in a side-by-side view, with similar triples marked and on click of this triples we get to scroll automatically to the similar triple on the other file. </p>
+            <div class="image-container">
+                <div>
+                    <img src="images/diffViewer.gif" alt="Diff Viewer">
+                    <p class="image-caption">Diff Viewer</p>
+                </div>
+            </div>  
         </div>
     </div>
 
@@ -174,9 +183,10 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature4-content" class="feature-content">
-            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two RDF datasets by identifying and resolving conflicting triples. In cases where triples overlap or conflict, users can view each conflicting entry and choose which version to retain. This process ensures that only the most relevant and accurate triples are included in the merged output, which can then be saved as a new RDF file.</p>
+            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two RDF datasets by identifying and resolving conflicting triples. In cases where triples overlap or conflict, users can view each conflicting entry (just like in number 3 - "Diff Viewer") and choose which version to retain. This process ensures that only the most relevant and accurate triples are included in the merged output, which can then be saved as a new RDF file.</p>
             <p><strong>Why Useful:</strong> Merging datasets with conflict resolution allows users to integrate data from different sources without creating duplicates or inconsistencies. This feature is particularly useful in collaborative environments, where changes from multiple contributors need to be combined.</p> 
-            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, select two files, and review conflicts in a conflict-resolution view (a side-by-side view). After deciding on resolutions, the final merged dataset can be saved as a new RDF file.</p>
+            <p><strong>Supported Serialization:</strong> Turtle</p>
+            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, selecting RDF file for comparison against the current open file; and review conflicts in a conflict-resolution view (a side-by-side view). This would be similar to GIT, we see the conflicts like in the "Diff Viewer" in number 3 above; after deciding on resolutions which to keep/discard or merge triples, the final merged dataset can be saved as a new RDF file.</p>
         </div>
     </div>
 
@@ -186,9 +196,10 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature5-content" class="feature-content">
-            <p><strong>Description:</strong> This feature combines autocompletion with support for custom vocabularies, allowing users to seamlessly integrate standard and user-defined RDF terms. As users type the autocomplete feature suggests vocabulary terms for both predefined and custom vocabularies. If a prefix is referenced but not yet imported, it automatically inserts the appropriate @prefix declaration. Additionally, users can load custom vocabulary files, enabling autocompletion for terms specific to their projects.</p>
-            <p><strong>Why Useful:</strong> This combined feature streamlines the RDF editing experience by allowing users to reference both well-known and custom vocabularies without manually typing terms or setting up prefixes. It is especially useful for projects that require unique vocabularies or project-specific terms, saving time and reducing errors. By autocompleting terms from both standard and custom vocabularies, it promotes consistency, enhances productivity, and ensures RDF data is structured correctly.</p>
-            <p><strong>Usage in VS Code:</strong> Users can configure custom vocabulary files in settings. As users type terms from both standard and custom vocabularies are suggested. The autocompletion feature automatically handles prefix imports as needed, simplifying document setup.</p>
+            <p><strong>Description:</strong> This feature combines autocompletion with support for custom vocabularies, allowing users to seamlessly integrate standard and user-defined RDF terms. As users type, the autocomplete feature suggests vocabulary terms for both predefined and custom vocabularies. If a prefix is referenced but not yet imported, it automatically inserts the appropriate @prefix declaration. Additionally, users can load custom vocabulary files, enabling autocompletion for terms specific to their projects.</p>
+            <p><strong>Why Useful:</strong> This feature allows users to reference both well-known and custom vocabularies without manually typing terms or setting up prefixes. It is especially useful for projects that require unique vocabularies or project-specific terms, saving time and reducing errors. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
+            <p><strong>Usage in VS Code:</strong> Users can configure custom vocabulary files in settings by specifying file or folder. As users type terms from both standard and custom vocabularies are suggested. Additionally, the autocompletion feature automatically handles prefix imports as needed. </p>
             <div class="image-container">
                 <div>
                     <img src="images/autocompletion.gif" alt="Autocomplete">
@@ -210,8 +221,9 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature6-content" class="feature-content">
-            <p><strong>Description:</strong> This feature provides thorough linting, validation, and automatic formatting for RDF data, ensuring compliance with best practices while maintaining readability. It detects and highlights a variety of common issues, such as unknown vocabularies, missing language tags or value types for literals, and data mismatches. The integrated Prettier-style formatter applies consistent spacing, line breaks, and indentation, and also allows customization of these formatting rules. For quick fixes, users can utilize syntax shortcuts and apply suggested corrections with a single click, improving data quality and productivity. Additionally, users can selectively ignore certain warnings to focus on priority issues.</p>
-            <p><strong>Why Useful:</strong> Maintaining well-formatted, high-quality RDF data is essential for compatibility, data integrity, and ease of use. This combined feature allows users to both detect and resolve issues promptly, while ensuring their RDF data remains organized and easy to read. Comprehensive linting catches potential problems early, and the automatic formatting ensures a clean structure across datasets. The ability to apply fixes and ignore specific warnings makes it adaptable for both beginners, who benefit from immediate feedback, and advanced users, who can tailor the tool to their specific needs.</p>
+            <p><strong>Description:</strong> This feature provides thorough linting, validation, and automatic formatting, ensuring compliance with best practices while maintaining readability. It detects and highlights a variety of common issues, such as unknown vocabularies, missing language tags or value types for literals, and data mismatches. The integrated Prettier-style formatter applies consistent spacing, line breaks, and indentation, and also allows customization of these formatting rules. For quick fixes, users can utilize syntax shortcuts and apply suggested corrections with a single click, improving data quality and productivity. Additionally, users can selectively ignore certain warnings to focus on priority issues.</p>
+            <p><strong>Why Useful:</strong> This feature allows users to both detect and resolve issues promptly, while ensuring their RDF data remains organized and easy to read. The ability to apply fixes and ignore specific warnings makes it adaptable for both beginners, who benefit from immediate feedback, and advanced users, who can tailor the tool to their specific needs.</p>
+            <p><strong>Supported Serialization:</strong> Turtle</p>
             <p><strong>Usage in VS Code:</strong> Issues are highlighted as users type, with suggestions and one-click fixes available on hover. Users can access formatting options via right-click or the command palette to style the entire document or selected sections. Warnings can be ignored on a case-by-case basis, and custom formatting options can be configured in settings.</p>
             <div class="image-container">
                 <div>
@@ -219,7 +231,7 @@
                     <p class="image-caption">Linting and Validation</p>
                 </div>
                 <div>
-                    <img src="images/combined_before_after.png" alt="After using template">
+                    <img src="images/prettier.gif" alt="After using formatting">
                     <p class="image-caption">Linting/Formatting</p>
                 </div>
             </div>    
@@ -232,9 +244,18 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature7-content" class="feature-content">
-            <p><strong>Description:</strong> This feature validates JSON-LD data, including verifying that property values match their expected data types, such as ensuring a name is a string or an age is an integer. It provides optional warnings for missing fields like <code>@type</code> and <code>@id</code>, since they aren't strictly required but are often beneficial for interoperability. Additionally, it offers advanced validation for semantic context, ensuring terms in the <code>@context</code> map correctly to IRIs. The feature also supports language tag validation, checking that <code>@language</code> tags follow ISO standards. </p>
-            <p><strong>Why Useful:</strong> JSON-LD is widely used for linking data across the web, but errors in structure or data types can lead to misinterpretation or data loss. This feature helps prevent such issues by catching missing fields and mismatched data types early in the process, ensuring that the JSON-LD data is both accurate and complete. By automating these checks, the feature saves time and reduces errors, helping users deliver high-quality, reliable JSON-LD data. </p>
+            <p><strong>Description:</strong> This feature verifies that property values match expected data types (e.g., names as strings, ages as integers) and issues warnings for missing required properties, duplicate @id values, and duplicate keys. Optional alerts are provided for missing @type and @id fields to enhance interoperability.
+                <br>
+                Additional checks focus on @context usage: they ensure consistency between property names and their definitions in the @context, validate correct usage of @reverse and @nest, confirm that terms in the @context map correctly to IRIs, and detect invalid nesting of @context definitions. Further validation ensures adherence to IRI/URL formatting standards, appropriate vocabulary usage, and compliance of @language tags with ISO standards. </p>
+            <p><strong>Why Useful:</strong> This feature ensures data consistency and semantic accuracy in JSON-LD files, avoiding common issues like mismatched data types or misconfigured contexts. By flagging potential errors and inconsistencies, it helps maintain high standards for structured data and saves users from manually checking JSON-LD specifications </p>
+            <p><strong>Supported Serialization:</strong> JSON-LD</p>
             <p><strong>Usage in VS Code:</strong> Users see real time validation as they type or edit JSON-LD content. Warnings and errors are highlighted in-line, with tooltips providing details about the issue and suggested fixes.</p>
+            <div class="image-container">
+                <div>
+                    <img src="images/linting-ld.gif" alt="JSON-LD Validation">
+                    <p class="image-caption">JSON-LD Validation</p>
+                </div>
+            </div> 
         </div>
     </div>
 
@@ -245,8 +266,9 @@
         </div>
         <div id="feature8-content" class="feature-content">
             <p><strong>Description:</strong> This feature detects duplicate triples within an RDF file, identifying redundant data entries even when they appear in different forms, such as using prefixed terms (e.g., <code>ex:name</code>) versus full IRIs (e.g., <code>http://example.org/name</code>). By flagging these duplicates, the tool helps users maintain data integrity and prevent data bloat, ensuring an optimized and consistent file structure.</p>
-            <p><strong>Why Useful:</strong> Duplicate triples can cause confusion and inflate file size within RDF data. By warning users of duplicates, this feature helps maintain a clean and accurate dataset. Furthermore, its syntax suggestions encourage efficient RDF writing practices, making files more readable and manageable, especially in large datasets with numerous properties and values. </p>
-            <p><strong>Usage in VS Code:</strong> Duplicate triples are highlighted.</p>
+            <p><strong>Why Useful:</strong> Duplicate triples can inflate file size and create confusion. By flagging duplicates, this feature helps keep datasets clean  and optimized, promoting efficient RDF writing practices and readability, especially in large datasets. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, N-Triples</p>
+            <p><strong>Usage in VS Code:</strong> Duplicate triples are highlighted in the open dataset.</p>
             <div class="image-container">
                 <div>
                     <img src="images/duplicate.gif" alt="Warn Usage of Duplicate Triples">
@@ -265,16 +287,13 @@
         </div>
         <div id="feature9-content" class="feature-content">
             <p><strong>Description:</strong> This feature organizes RDF triples by grouping them according to individual entities, ensuring that all triples related to the same entity are displayed together. For example, all triples associated with a person (such as name, age, and email) will be clustered in one place, providing a clear, concise view of that entity's properties and relationships. </p>
-            <p><strong>Why Useful:</strong> In RDF datasets with complex interconnections, triples related to the same entity can become scattered, making it challenging to follow information about a particular instance. Grouping triples by entity enhances readability, allowing users to view all relevant data for each individual entity without searching through unrelated triples. This is particularly useful in large datasets where quick access to specific entity information is needed. </p>
+            <p><strong>Why Useful:</strong> In RDF datasets with complex interconnections, triples related to the same entity can become scattered, making it challenging to follow information about a particular instance. Grouping triples by entity enhances readability, allowing users to view all relevant data for each individual entity without searching through unrelated triples. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, N-Triples</p>
             <p><strong>Usage in VS Code:</strong> Users can activate entity-based sorting through the command palette, which applies the grouping across the RDF document, displaying each entity's triples in a unified block.</p>
             <div class="image-container">
                 <div>
-                    <img src="images/BeforeGrouping.png" alt="BeforeGrouping">
-                    <p class="image-caption">Before Grouping</p>
-                </div>
-                <div>
-                    <img src="images/AfterGrouping.png" alt="After Grouping">
-                    <p class="image-caption">After Grouping</p>
+                    <img src="images/groupbyEntity.gif" alt="Grouping By Entity">
+                    <p class="image-caption">Grouping By Entity</p>
                 </div>
             </div> 
         </div>
@@ -285,10 +304,21 @@
             10. Hide Long URLs for Improved Document Structure
             <span class="toggle-icon">▼</span>
         </div>
-        <div id="feature13-content" class="feature-content">
+        <div id="feature10-content" class="feature-content">
             <p><strong>Description:</strong> This feature hides long URLs in RDF documents to improve readability and orientation, replacing them with shorter, user-friendly versions (eg. <code>http://example.org/...</code>). This visual adjustment is purely for display, allowing users to view a version of their data without altering the actual URIs. Users can toggle the visibility of long URLs, making it easy to switch between a clean view and the original format as needed. </p>
-            <p><strong>Why Useful:</strong> RDF documents often contain lengthy URIs, which can clutter the workspace and make it challenging to follow the document's structure. By hiding these long URLs, this feature helps users focus on the data content itself, improving orientation and reducing visual noise. This feature enhances document readability, supporting faster comprehension and more efficient RDF editing without sacrificing data integrity. </p>
-            <p><strong>Usage in VS Code:</strong> Users can toggle this option, hiding URLs while retaining their functionality, through a mouse or command palette</p>
+            <p><strong>Why Useful:</strong> RDF documents often contain lengthy URIs, which can clutter the workspace and make it challenging to follow the document's structure. By hiding these long URLs, this feature helps users focus on the data content itself, improving orientation and reducing visual noise. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
+            <p><strong>Usage in VS Code:</strong> Users can toggle this option, hiding URLs while retaining their functionality, also revert back to the original long url, through a mouse or command palette</p>
+            <div class="image-container">
+                <div>
+                    <img src="images/beforeShorterning.png" alt="Before Shorterning">
+                    <p class="image-caption">Before Hiding Long URLs</p>
+                </div>
+                <div>
+                    <img src="images/afterShortening.png" alt="After Shorterning">
+                    <p class="image-caption">After Hiding Long URLs</p>
+                </div>
+            </div>    
         </div>
     </div>
 
@@ -299,7 +329,8 @@
         </div>
         <div id="feature11-content" class="feature-content">
             <p><strong>Description:</strong> This feature enables bulk refactoring of IRIs and prefixes across RDF datasets, allowing users to switch between full IRIs and shortened prefixes in a single operation. For example, users can convert <code>http://example.org/name</code> to <code>ex:name</code> (and vice versa) across current document or entire datasets. This makes it easy to adapt the RDF data structure to project needs, improving readability and consistency.</p>
-            <p><strong>Why Useful:</strong> In RDF data, balancing between full IRIs and prefixes can be crucial for readability and consistency, especially in large datasets. Manually converting each IRI to a prefix (or vice versa) is time-consuming and prone to error. By automating these bulk edits, it reduces repetitive work, minimizes formatting errors, and improves the overall clarity and maintainability of RDF files. </p>
+            <p><strong>Why Useful:</strong> In RDF data, balancing between full IRIs and prefixes can be crucial for readability and consistency, especially in large datasets. Manually converting each IRI to a prefix (or vice versa) is time-consuming and prone to error. By automating these bulk edits, it reduces repetitive work, minimizes formatting errors. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
             <p><strong>Usage in VS Code:</strong> Users can select IRI or prefix notation, then activate refactoring across RDF datasets.</p>
             <div class="image-container">
                 <div>
@@ -319,7 +350,8 @@
         </div>
         <div id="feature12-content" class="feature-content">
             <p><strong>Description:</strong> This feature provides an interactive graph-based visualization of RDF data, allowing users to explore entities and their relationships as interconnected nodes. Users can switch between schema views, which display the structural hierarchy of classes and properties, and instance views, which show specific data entries and their links. Similar to existing tools like WebVOWL, this feature makes it easy to understand complex RDF structures by visually mapping out connections and dependencies. </p>
-            <p><strong>Why Useful:</strong> RDF data can quickly become complex, with multiple relationships and nested structures that are challenging to interpret in plain text. An interactive graph allows users to navigate RDF data intuitively, offering a high-level view of data connections while enabling detailed exploration of individual entities and their properties. This feature enhances understanding, speeds up data analysis, and makes RDF data more accessible to both new and experienced users.</p>
+            <p><strong>Why Useful:</strong> RDF data often involves complex, nested relationships that are hard to interpret in plain text. An interactive graph simplifies exploration, offering a high-level view and detailed entity connections, enhancing understanding and data accessibility for all users.</p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
             <p><strong>Usage in VS Code:</strong> Users open the graph in a side panel, clicking on nodes to explore related entities.</p>
             <div class="image-container">
                 <div>
@@ -330,14 +362,15 @@
         </div>
     </div>
 
-    <div id="feature17" class="feature">
-        <div id="feature17-header" class="feature-header" onclick="toggleFeature('feature17-content')">
+    <div id="feature13" class="feature">
+        <div id="feature13-header" class="feature-header" onclick="toggleFeature('feature13-content')">
             13. Dataset Overview: VoID & Statistical Analysis
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature13-content" class="feature-content">
             <p><strong>Description:</strong> This combined feature provides a comprehensive overview of RDF datasets by offering users the choice to view either a VoID summary or statistical metrics. The VoID summary captures the dataset structure and interlinking relationships, complemented by the statistical metrics to provide insights such as centrality, connectivity, and node significance. By extracting and presenting these insights together, users can choose the view that best suits their analysis needs.</p>
-            <p><strong>Why Useful:</strong> The VoID summary is valuable for understanding dataset metadata, making it easier to share and integrate RDF data. Statistical metrics help users analyze the structural complexity of the dataset and focus on significant entities. This combination supports a deeper understanding of RDF datasets by providing options for both high-level dataset metadata (VoID) and detailed data structure analysis (statistical metrics).</p>
+            <p><strong>Why Useful:</strong> The VoID summary aids in understanding dataset metadata for easier sharing and integration, while statistical metrics offer insights into structural complexity and significant entities. Together, they provide options for high-level and detailed dataset analysis. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD, N-Triples</p>
             <p><strong>Usage in VS Code:</strong> Through the command palette, users can select to generate a VoID summary or view statistical metrics. The chosen overview is displayed in a new tab for easy review.</p>
             <div class="image-container">
                 <div>
@@ -355,8 +388,9 @@
         </div>
         <div id="feature14-content" class="feature-content">
             <p><strong>Description:</strong> This feature enables users to filter RDF triples based on specific criteria such as subject, predicate, object, or namespace. By narrowing down the displayed triples, users can focus on particular section of the dataset, making it easier to examine relevant relationships or data points. </p>
-            <p><strong>Why Useful:</strong> Large RDF datasets can be overwhelming to navigate, especially when looking for specific patterns or subsets of data. The ability to filter triples by subject, predicate, object, or namespace offers an approach to data exploration, allowing users to locate relevant information without needing to look through unrelated data. By simplifying the view, filtering enhances productivity, reduces visual clutter, and makes RDF data more manageable for both focused tasks and high-level overviews.</p>
-            <p><strong>Usage in VS Code:</strong> Users define filter parameters, narrowing results to specific triples for easier review.</p>
+            <p><strong>Why Useful:</strong> Large RDF datasets can be overwhelming to navigate, especially when looking for specific patterns or subsets of data. The ability to filter triples by subject, predicate, object, or namespace offers an approach to data exploration, allowing users to locate relevant information without needing to look through unrelated data. </p>
+            <p><strong>Supported Serialization:</strong> Turtle, JSON-LD</p>
+            <p><strong>Usage in VS Code:</strong> Users through the command palette pass filter parameters, and the filtered triples are shown in a new tab for easy review. </p>
             <div class="image-container">
                 <div>
                     <img src="images/tripleFilter.gif" alt="Triple Filter">
