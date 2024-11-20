@@ -183,10 +183,25 @@
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature4-content" class="feature-content">
-            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two RDF datasets by identifying and resolving conflicting triples. In cases where triples overlap or conflict, users can view each conflicting entry (just like in number 3 - "Diff Viewer") and choose which version to retain. This process ensures that only the most relevant and accurate triples are included in the merged output, which can then be saved as a new RDF file.</p>
+            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two RDF datasets by identifying and resolving conflicting triples. In RDF, conflicts can arise in several ways, such as namespace clashes, semantic inconsistencies, or incompatible datatypes. Users can view each conflicting entry (just like in number 3 - "Diff Viewer") and choose which version to retain. This process ensures that only the most relevant and accurate triples are included in the merged output, which can then be saved as a new RDF file.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>
+                    <strong>Namespace Clashes:</strong> When two datasets define the same prefix for different namespaces:
+                    <br>
+                    <code>@prefix ex: &lt;http://example.org/&gt; .</code> (Dataset 1) <br>
+                    <code>@prefix ex: &lt;http://another-example.org/&gt; .</code> (Dataset 2) <br>
+                </li>
+                <li>
+                    <strong>Semantic Inconsistencies:</strong> When the same entity is described with contradictory properties:
+                    <br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:age&gt; "34"^^xsd:integer .</code> (Dataset 1) <br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:age&gt; "43"^^xsd:integer .</code> (Dataset 2) <br>
+                </li>
+            </ul>
             <p><strong>Why Useful:</strong> Merging datasets with conflict resolution allows users to integrate data from different sources without creating duplicates or inconsistencies. This feature is particularly useful in collaborative environments, where changes from multiple contributors need to be combined.</p> 
             <p><strong>Supported Serialization:</strong> Turtle</p>
-            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, selecting RDF file for comparison against the current open file; and review conflicts in a conflict-resolution view (a side-by-side view). This would be similar to GIT, we see the conflicts like in the "Diff Viewer" in number 3 above; after deciding on resolutions which to keep/discard or merge triples, the final merged dataset can be saved as a new RDF file.</p>
+            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, selecting RDF file for comparison against the current open file; and review conflicts in a conflict-resolution view (a side-by-side view). This would be similar to GIT, we see the conflicts like in the "Diff Viewer" in number 3 above; after deciding on resolutions which to keep/discard, modify or merge triples, the final merged dataset can be saved as a new RDF file.</p>
         </div>
     </div>
 
