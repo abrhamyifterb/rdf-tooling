@@ -179,31 +179,39 @@
 
     <div id="feature4" class="feature">
         <div id="feature4-header" class="feature-header" onclick="toggleFeature('feature4-content')">
-            4. RDF Dataset Merger with Conflict Resolution
+            4. RDF Dataset Merger with Triple Grouping
             <span class="toggle-icon">▼</span>
         </div>
         <div id="feature4-content" class="feature-content">
-            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two RDF datasets by identifying and resolving conflicting triples. In RDF, conflicts can arise in several ways, such as namespace clashes, semantic inconsistencies, or incompatible datatypes. Users can view each conflicting entry (just like in number 3 - "Diff Viewer") and choose which version to retain. This process ensures that only the most relevant and accurate triples are included in the merged output, which can then be saved as a new RDF file.</p>
-            <p><strong>Examples:</strong></p>
+            <p><strong>Description:</strong> The RDF Dataset Merger enables users to merge two or more RDF Turtle datasets by concatenating their triples and organizing them for better readability. Triples associated with the same entity are automatically grouped, ensuring a structured and clear view of the combined dataset. This feature simplifies working with large, merged RDF datasets by keeping relationships and entities organized.</p>
+            <p><strong>Features:</strong></p>
             <ul>
                 <li>
-                    <strong>Namespace Clashes:</strong> When two datasets define the same prefix for different namespaces:
-                    <br>
-                    <code>@prefix ex: &lt;http://example.org/&gt; .</code> (Dataset 1) <br>
-                    <code>@prefix ex: &lt;http://another-example.org/&gt; .</code> (Dataset 2) <br>
+                    <strong>Concatenate RDF Files:</strong> Merges multiple RDF datasets into one by combining their triples seamlessly.
                 </li>
                 <li>
-                    <strong>Semantic Inconsistencies:</strong> When the same entity is described with contradictory properties:
-                    <br>
-                    <code>&lt;ex:Homer&gt; &lt;ex:age&gt; "34"^^xsd:integer .</code> (Dataset 1) <br>
-                    <code>&lt;ex:Homer&gt; &lt;ex:age&gt; "43"^^xsd:integer .</code> (Dataset 2) <br>
+                    <strong>Group Triples:</strong> Automatically organizes triples so that related data is displayed together. For example:
+                    <br><br>
+                    <strong>Dataset 1:</strong><br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:name&gt; "Homer Simpson" .</code><br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:age&gt; "34"^^xsd:integer .</code><br><br>
+                    <strong>Dataset 2:</strong><br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:drinks&gt; "Beer" .</code><br>
+                    <code>&lt;ex:Homer&gt; &lt;ex:city&gt; "Springfield" .</code><br><br>
+                    <strong>Merged and Grouped:</strong><br>
+                    <code>&lt;ex:Homer&gt;</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ex:name&gt; "Homer Simpson" ;</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ex:age&gt; "34"^^xsd:integer ;</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ex:drinks&gt; "Beer" ;</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ex:city&gt; "Springfield" .</code><br>
                 </li>
             </ul>
-            <p><strong>Why Useful:</strong> Merging datasets with conflict resolution allows users to integrate data from different sources without creating duplicates or inconsistencies. This feature is particularly useful in collaborative environments, where changes from multiple contributors need to be combined.</p> 
+            <p><strong>Why Useful:</strong> This feature streamlines the process of combining RDF datasets by providing a clean and structured merged output. Grouping triples enhances readability, helping users quickly navigate and analyze large datasets.</p> 
             <p><strong>Supported Serialization:</strong> Turtle</p>
-            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, selecting RDF file for comparison against the current open file; and review conflicts in a conflict-resolution view (a side-by-side view). This would be similar to GIT, we see the conflicts like in the "Diff Viewer" in number 3 above; after deciding on resolutions which to keep/discard, modify or merge triples, the final merged dataset can be saved as a new RDF file.</p>
+            <p><strong>Usage in VS Code:</strong> Users initiate the merge through the command palette, selecting multiple RDF Turtle files to merge. The merged output is displayed in a new tab, with triples automatically grouped by entity. The organized dataset can be saved as a new RDF file.</p>
         </div>
     </div>
+    
 
     <div id="feature5" class="feature">
         <div id="feature5-header" class="feature-header" onclick="toggleFeature('feature5-content')">
